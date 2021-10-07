@@ -1,0 +1,79 @@
+@charset 'utf-8';
+@import 'reset.scss';
+
+body {
+    background: #efefef;
+}
+
+#gallery {
+    width: 100%; 
+    padding: 50px;
+    
+    .list {
+        width: 100%;
+
+        &::after {
+            content:''; display: block; clear: both;
+        }
+
+        li {
+            float: left; width: 20%; padding: 10px;
+
+            .inner {
+                width: 100%;
+                padding: 20px;
+                background: #fff;
+                box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
+                border-radius: 6px;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                p {
+                    font: bold 16px/1.2 "arial";
+                    color: #777;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px){
+    #gallery {
+        .list {
+            li { width: calc(100% / 4)}
+        }
+    }
+}
+
+@media screen and (max-width: 799px){
+    #gallery {
+        .list {
+            li { width: calc(100% / 3)}
+        }
+    }
+}
+
+@media screen and (max-width: 599px){
+    #gallery {
+        .list {
+            li { width: calc(100% / 2)}
+        }
+    }
+}
+
+@media screen and (max-width: 479px){
+    #gallery {
+        .list {
+            li { width: calc(100% / 1)}
+        }
+    }
+}
