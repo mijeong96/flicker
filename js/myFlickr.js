@@ -43,20 +43,31 @@ $.ajax({
         $("#gallery ul")
             .append(
                 $("<li>")
+                    //다시 자식으로 p태그 생성해서 이미지 제목 출력
                     .append(
-                        //a태그를 만들어서 큰 이미지의 주소를 href속성 대입
+                        //a태그를 만들어서 큰 이미지의 주소를 href속성에 대입
                         $("<a>").attr({
                             href : "https://live.staticflickr.com/"+data.server+"/"+data.id+"_"+data.secret+"_b.jpg"
                         })
+                        .append(
+                            // 다시 a태그 안쪽에 img태그를 만들어서 작은 이미지 주소값을 대입하여 썸네일을 생성
+                            $("<img>").attr({
+                                src : "https://live.staticflickr.com/"+data.server+"/"+data.id+"_"+data.secret+"_m.jpg"
+                            })
+                        )
                     )
-                    .append(
-                        $("<img>").attr({
-                            src : "https://live.staticflickr.com/"+data.server+"/"+data.id+"_"+data.secret+"_m.jpg"
-                        })
-                    )
-                    //다시 자식으로 p태그 생성해서 이미지 제목 출력
                     .append(
                         $("<p>").text(text)
+                    )
+                    //이미지를 올린 사용자 프로필 이미지와 이름 출력
+                    .append(
+                        $("<div class='profile'>")
+                            .append(
+                                $("<img>").attr({
+                                    src: "https://www.flickr.com/buddyicons/"+data.owner+".jpg"
+                                }),
+                                $("<span>").text(data.owner)
+                            )
                     )
             )
     })
