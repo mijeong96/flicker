@@ -90,3 +90,7 @@ $("body").on("click", "#gallery ul li",function(e){
             )
     )
 })
+
+$("body").on("click", ".pop span", function(){
+    $(".pop").remove();
+})
