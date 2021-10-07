@@ -43,6 +43,17 @@ $.ajax({
         $("#gallery ul")
             .append(
                 $("<li>")
+                    .append(
+                        //a태그를 만들어서 큰 이미지의 주소를 href속성 대입
+                        $("<a>").attr({
+                            href : "https://live.staticflickr.com/"+data.server+"/"+data.id+"_"+data.secret+"_b.jpg"
+                        })
+                    )
+                    .append(
+                        $("<img>").attr({
+                            src : "https://live.staticflickr.com/"+data.server+"/"+data.id+"_"+data.secret+"_m.jpg"
+                        })
+                    )
                     //다시 자식으로 p태그 생성해서 이미지 제목 출력
                     .append(
                         $("<p>").text(text)
